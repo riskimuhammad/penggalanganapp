@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:penggalangandana/helper/idr_help.dart';
 import 'package:penggalangandana/helper/size_help.dart';
+import 'package:penggalangandana/model/users/donasi.dart';
+
 import 'package:penggalangandana/style/color.dart';
 import 'package:penggalangandana/style/text_style.dart';
 
@@ -120,20 +122,55 @@ class HomePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        CircleAvatar(
-                          backgroundColor: color2.withOpacity(.2),
-                          backgroundImage:
-                              AssetImage("assets/images/icons/baitul mal.png"),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Donasi(
+                                          instansi: '1',
+                                          img:
+                                              "assets/images/icons/baitul mal.png",
+                                        )));
+                          },
+                          child: CircleAvatar(
+                            backgroundColor: color2.withOpacity(.2),
+                            backgroundImage: AssetImage(
+                                "assets/images/icons/baitul mal.png"),
+                          ),
                         ),
-                        Image.asset(
-                          "assets/images/icons/logo.png",
-                          height: 30,
-                          width: 70,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Donasi(
+                                          instansi: '2',
+                                          img: "assets/images/icons/logo.png",
+                                        )));
+                          },
+                          child: Image.asset(
+                            "assets/images/icons/logo.png",
+                            height: 30,
+                            width: 70,
+                          ),
                         ),
-                        Image.asset(
-                          "assets/images/icons/amanah takaful.png",
-                          height: 30,
-                          width: 70,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Donasi(
+                                          instansi: '3',
+                                          img:
+                                              "assets/images/icons/amanah takaful.png",
+                                        )));
+                          },
+                          child: Image.asset(
+                            "assets/images/icons/amanah takaful.png",
+                            height: 30,
+                            width: 70,
+                          ),
                         ),
                       ],
                     ),
@@ -232,6 +269,7 @@ class HomePage extends StatelessWidget {
                                 SizedBox(
                                   height: 10,
                                 ),
+                                // ignore: deprecated_member_use
                                 RaisedButton(
                                   onPressed: () {},
                                   child: Text(

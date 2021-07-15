@@ -5,7 +5,8 @@ import 'package:penggalangandana/style/color.dart';
 final styleNormal = GoogleFonts.poppins(textStyle: TextStyle());
 final styleBold =
     GoogleFonts.poppins(textStyle: TextStyle(fontWeight: FontWeight.bold));
-
+final styleBold11 = GoogleFonts.poppins(
+    textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 11));
 //White
 final styleNormalWhite =
     GoogleFonts.poppins(textStyle: TextStyle(color: colorWhite));
@@ -16,3 +17,11 @@ final styleSize9White =
 
 //Listtile
 final styleSize11 = GoogleFonts.poppins(textStyle: TextStyle(fontSize: 11));
+//grey
+final styleGrey11 =
+    GoogleFonts.poppins(textStyle: TextStyle(fontSize: 11, color: Colors.grey));
+final styleGreyNormal =
+    GoogleFonts.poppins(textStyle: TextStyle(color: Colors.grey));
+//green
+final styleGreenNormal =
+    GoogleFonts.poppins(textStyle: TextStyle(color: color2));
