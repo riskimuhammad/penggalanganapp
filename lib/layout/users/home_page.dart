@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:penggalangandana/helper/idr_help.dart';
 import 'package:penggalangandana/helper/size_help.dart';
+import 'package:penggalangandana/layout/users/profile_page.dart';
 import 'package:penggalangandana/model/users/donasi.dart';
 
 import 'package:penggalangandana/style/color.dart';
@@ -37,7 +38,6 @@ class HomePage extends StatelessWidget {
                   children: [
                     Container(
                       padding: EdgeInsets.all(20),
-                      height: 250,
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: colorWhite,
@@ -53,6 +53,15 @@ class HomePage extends StatelessWidget {
                       child: Column(
                         children: [
                           ListTile(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Profile(
+                                            img:
+                                                "assets/images/icons/baitul mal.png",
+                                          )));
+                            },
                             leading: CircleAvatar(
                               backgroundImage:
                                   AssetImage("assets/images/person.jpeg"),
@@ -66,8 +75,65 @@ class HomePage extends StatelessWidget {
                               style: styleSize11,
                             ),
                           ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  child: RaisedButton(
+                                    color: colorWhite,
+                                    onPressed: () {},
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          "Kredit",
+                                          style: styleBold11,
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Image.asset(
+                                          "assets/images/visa-mastercard.png",
+                                          width: 50,
+                                          height: 50,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Expanded(
+                                child: RaisedButton(
+                                  color: colorWhite,
+                                  onPressed: () {},
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "Debit ",
+                                        style: styleBold11,
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Image.asset(
+                                        "assets/images/bank.png",
+                                        width: 74,
+                                        height: 50,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
                           Container(
-                            margin: EdgeInsets.only(top: 60),
                             height: 50,
                             width: double.infinity,
                             decoration: BoxDecoration(
@@ -231,7 +297,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 10),
+                      margin: EdgeInsets.only(top: 10, bottom: 20),
                       height: 200,
                       width: double.infinity,
                       decoration: BoxDecoration(

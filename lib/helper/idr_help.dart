@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 String IDR(value) {
   var data = NumberFormat.currency(
     locale: "id",
-    symbol: "IDR ",
+    symbol: "Rp. ",
   ).format(value);
   return data;
 }

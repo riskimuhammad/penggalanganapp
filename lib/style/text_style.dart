@@ -2,7 +2,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:penggalangandana/style/color.dart';
 
-final styleNormal = GoogleFonts.poppins(textStyle: TextStyle());
+final styleNormal =
+    GoogleFonts.poppins(textStyle: TextStyle(color: Colors.black));
+final styleNormal11 = GoogleFonts.poppins(textStyle: TextStyle(fontSize: 11));
 final styleBold =
     GoogleFonts.poppins(textStyle: TextStyle(fontWeight: FontWeight.bold));
 final styleBold11 = GoogleFonts.poppins(
@@ -25,3 +27,6 @@ final styleGreyNormal =
 //green
 final styleGreenNormal =
     GoogleFonts.poppins(textStyle: TextStyle(color: color2));
+
+final styleGreenNormal11 =
+    GoogleFonts.poppins(textStyle: TextStyle(color: color2, fontSize: 11));
