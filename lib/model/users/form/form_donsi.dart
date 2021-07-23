@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:penggalangandana/helper/dialog_help.dart';
 import 'package:penggalangandana/helper/idr_help.dart';
 import 'package:penggalangandana/helper/size_help.dart';
+import 'package:penggalangandana/layout/users/home_page.dart';
+import 'package:penggalangandana/model/users/konfirmasi_pembayaran.dart';
 import 'package:penggalangandana/style/color.dart';
 import 'package:penggalangandana/style/text_style.dart';
 
@@ -325,7 +327,11 @@ class _FormDonasiState extends State<FormDonasi> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5)),
                             onPressed: () {
-                              DIALOG().dialogSukses(context);
+                              DIALOG().dialogSukses(
+                                  context,
+                                  KonfirmasiPembayaran(
+                                    img: widget.image,
+                                  ));
                             },
                             color: color1,
                             child: Text(

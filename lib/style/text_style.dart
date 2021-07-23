@@ -7,6 +7,8 @@ final styleNormal =
 final styleNormal11 = GoogleFonts.poppins(textStyle: TextStyle(fontSize: 11));
 final styleBold =
     GoogleFonts.poppins(textStyle: TextStyle(fontWeight: FontWeight.bold));
+final styleBold20 = GoogleFonts.poppins(
+    textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20));
 final styleBold11 = GoogleFonts.poppins(
     textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 11));
 //White

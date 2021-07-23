@@ -5,6 +5,7 @@ import 'package:penggalangandana/helper/idr_help.dart';
 import 'package:penggalangandana/helper/size_help.dart';
 import 'package:penggalangandana/model/users/form/form_tambah_debit.dart';
 import 'package:penggalangandana/model/users/form/form_tambah_kredit.dart';
+import 'package:penggalangandana/model/users/form/form_tambah_saldo.dart';
 import 'package:penggalangandana/style/color.dart';
 import 'package:penggalangandana/style/text_style.dart';
 
@@ -101,7 +102,7 @@ class _ProfileState extends State<Profile> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Tambah Debit ",
+                          "Debit ",
                           style: styleBold11,
                         ),
                         SizedBox(
@@ -109,7 +110,7 @@ class _ProfileState extends State<Profile> {
                         ),
                         Image.asset(
                           "assets/images/bank.png",
-                          width: 74,
+                          width: 72,
                           height: 50,
                         ),
                       ],
@@ -117,9 +118,20 @@ class _ProfileState extends State<Profile> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 20,
-              ),
+              Container(
+                  margin: EdgeInsets.only(bottom: 20, top: 10),
+                  height: 50,
+                  width: double.infinity,
+                  child: RaisedButton(
+                    color: colorWhite,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TambahSaldo()));
+                    },
+                    child: Text("Tambah Saldo +"),
+                  )),
               Text(
                 "Riwayat Donasi",
                 style: styleBold,

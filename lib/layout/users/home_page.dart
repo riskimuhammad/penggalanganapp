@@ -3,6 +3,7 @@ import 'package:penggalangandana/helper/idr_help.dart';
 import 'package:penggalangandana/helper/size_help.dart';
 import 'package:penggalangandana/layout/users/profile_page.dart';
 import 'package:penggalangandana/model/users/donasi.dart';
+import 'package:penggalangandana/model/users/donasi_sekarang.dart';
 
 import 'package:penggalangandana/style/color.dart';
 import 'package:penggalangandana/style/text_style.dart';
@@ -123,7 +124,7 @@ class HomePage extends StatelessWidget {
                                       ),
                                       Image.asset(
                                         "assets/images/bank.png",
-                                        width: 74,
+                                        width: 61,
                                         height: 50,
                                       ),
                                     ],
@@ -337,7 +338,13 @@ class HomePage extends StatelessWidget {
                                 ),
                                 // ignore: deprecated_member_use
                                 RaisedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                DonasiSekarangPage()));
+                                  },
                                   child: Text(
                                     "Donasi Sekarang",
                                     style: styleSize9White,
