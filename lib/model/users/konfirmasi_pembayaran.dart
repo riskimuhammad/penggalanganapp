@@ -57,7 +57,7 @@ class KonfirmasiPembayaran extends StatelessWidget {
                     height: 5,
                   ),
                   Text(
-                    "Transfer sesuai nominal di bawah imi",
+                    "Transfer sesuai nominal di bawah ini",
                     style: styleNormal11,
                   ),
                   SizedBox(

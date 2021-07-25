@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:penggalangandana/helper/idr_help.dart';
 import 'package:penggalangandana/helper/size_help.dart';
 import 'package:penggalangandana/layout/users/home_page.dart';
+import 'package:penggalangandana/model/users/donasi.dart';
+import 'package:penggalangandana/model/users/form/form_donsi.dart';
 import 'package:penggalangandana/style/color.dart';
 import 'package:penggalangandana/style/text_style.dart';
 
@@ -157,7 +159,14 @@ class _DonasiBerhasilState extends State<DonasiBerhasil> {
                         child: RaisedButton(
                           padding: EdgeInsets.all(5),
                           color: color1,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => FormDonasi(
+                                          image: widget.img,
+                                        )));
+                          },
                           child: Text(
                             "Donasi Lagi",
                             style: styleSize9White,
