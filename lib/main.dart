@@ -3,6 +3,8 @@ import 'package:penggalangandana/layout/admin/admin_page.dart';
 import 'package:penggalangandana/layout/users/home_page.dart';
 import 'package:penggalangandana/style/color.dart';
 
+import 'layout/register_page.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(appBarTheme: AppBarTheme(color: color2)),
-      home: HomePage(),
+      home: registerPage(),
     );
   }
 }
