@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import 'package:penggalangandana/database/penggalangan_app_base.dart';
+import 'package:penggalangandana/helper/dialog_help.dart';
 import 'package:penggalangandana/style/color.dart';
 import 'package:penggalangandana/style/text_style.dart';
 
 class FormDebit extends StatefulWidget {
-  const FormDebit({Key key}) : super(key: key);
+  var document;
+  FormDebit({Key key, this.document}) : super(key: key);
 
   @override
   _FormDebitState createState() => _FormDebitState();
@@ -13,9 +16,13 @@ class FormDebit extends StatefulWidget {
 class _FormDebitState extends State<FormDebit> {
   String dropdownValue;
   TextEditingController _namaController;
+  TextEditingController _nomorRekController;
+
   @override
   void initState() {
     _namaController = TextEditingController(text: "");
+    _nomorRekController = TextEditingController(text: "");
+
     super.initState();
   }
 
@@ -109,7 +116,7 @@ class _FormDebitState extends State<FormDebit> {
                     decoration: BoxDecoration(
                         border: Border(bottom: BorderSide(color: color1))),
                     child: TextFormField(
-                      controller: _namaController,
+                      controller: _nomorRekController,
                       decoration: InputDecoration(
                           fillColor: color1,
                           focusColor: color1,
@@ -129,7 +136,14 @@ class _FormDebitState extends State<FormDebit> {
                     padding: EdgeInsets.all(15),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
-                    onPressed: () {},
+                    onPressed: () {
+                      DIALOG().dialogInfo(context);
+                      ServiceApp().addDebittCard(
+                          _namaController.text,
+                          _nomorRekController.text,
+                          dropdownValue,
+                          widget.document);
+                    },
                     color: color1,
                     child: Text(
                       "Simpan Debit",

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:penggalangandana/helper/idr_help.dart';
 import 'package:penggalangandana/helper/size_help.dart';
 import 'package:penggalangandana/layout/users/home_page.dart';
@@ -9,7 +10,18 @@ import 'package:penggalangandana/style/text_style.dart';
 
 class DonasiBerhasil extends StatefulWidget {
   String img;
-  DonasiBerhasil({Key key, this.img}) : super(key: key);
+  String nama;
+  String nik;
+  String email;
+  var document;
+  DonasiBerhasil(
+      {Key key,
+      this.img,
+      this.document,
+      @required this.nama,
+      @required this.email,
+      @required this.nik})
+      : super(key: key);
 
   @override
   _DonasiBerhasilState createState() => _DonasiBerhasilState();
@@ -164,7 +176,11 @@ class _DonasiBerhasilState extends State<DonasiBerhasil> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => FormDonasi(
+                                          email: widget.email,
+                                          nama: widget.nama,
+                                          nik: widget.nik,
                                           image: widget.img,
+                                          document: widget.document,
                                         )));
                           },
                           child: Text(

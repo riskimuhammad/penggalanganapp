@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "100317511423",
+    "project_id": "penggalangandana-app",
+    "storage_bucket": "penggalangandana-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100317511423:android:b6ccecac83ecc67164d6ca",
+        "android_client_info": {
+          "package_name": "com.app.penggalangandana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100317511423-2n3auj1ikd38mhi14p7fp3mtrl35vdap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.penggalangandana",
+            "certificate_hash": "abfa67e617817e86153422eb95931b1772f46758"
+          }
+        },
+        {
+          "client_id": "100317511423-f8bqk2m6esjvf69jdrgkchv03bs6i157.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkHxLWp8pR83B4rdO8b4H6g-qxPZB3io0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100317511423-f8bqk2m6esjvf69jdrgkchv03bs6i157.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

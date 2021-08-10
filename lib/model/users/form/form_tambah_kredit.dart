@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import 'package:penggalangandana/database/penggalangan_app_base.dart';
+import 'package:penggalangandana/helper/dialog_help.dart';
 import 'package:penggalangandana/style/color.dart';
 import 'package:penggalangandana/style/text_style.dart';
 
 class FormCreditCard extends StatefulWidget {
-  const FormCreditCard({Key key}) : super(key: key);
+  var document;
+  FormCreditCard({Key key, this.document}) : super(key: key);
 
   @override
   _FormCreditCardState createState() => _FormCreditCardState();
@@ -13,9 +16,15 @@ class FormCreditCard extends StatefulWidget {
 class _FormCreditCardState extends State<FormCreditCard> {
   String dropdownValue;
   TextEditingController _namaController;
+  TextEditingController nomorRekcontroller;
+  TextEditingController _mmThController;
+  TextEditingController _cvvController;
   @override
   void initState() {
     _namaController = TextEditingController(text: "");
+    nomorRekcontroller = TextEditingController(text: "");
+    _mmThController = TextEditingController(text: "");
+    _cvvController = TextEditingController(text: "");
     super.initState();
   }
 
@@ -68,7 +77,7 @@ class _FormCreditCardState extends State<FormCreditCard> {
                     decoration: BoxDecoration(
                         border: Border(bottom: BorderSide(color: color1))),
                     child: TextFormField(
-                      controller: _namaController,
+                      controller: nomorRekcontroller,
                       decoration: InputDecoration(
                           fillColor: color1,
                           focusColor: color1,
@@ -93,7 +102,7 @@ class _FormCreditCardState extends State<FormCreditCard> {
                               border:
                                   Border(bottom: BorderSide(color: color1))),
                           child: TextFormField(
-                            controller: _namaController,
+                            controller: _mmThController,
                             decoration: InputDecoration(
                                 fillColor: color1,
                                 focusColor: color1,
@@ -120,7 +129,7 @@ class _FormCreditCardState extends State<FormCreditCard> {
                               border:
                                   Border(bottom: BorderSide(color: color1))),
                           child: TextFormField(
-                            controller: _namaController,
+                            controller: _cvvController,
                             decoration: InputDecoration(
                                 fillColor: color1,
                                 focusColor: color1,
@@ -143,7 +152,15 @@ class _FormCreditCardState extends State<FormCreditCard> {
                     padding: EdgeInsets.all(15),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5)),
-                    onPressed: () {},
+                    onPressed: () {
+                      DIALOG().dialogInfo(context);
+                      ServiceApp().addCreditCard(
+                          _namaController.text,
+                          nomorRekcontroller.text,
+                          _mmThController.text,
+                          _cvvController.text,
+                          widget.document);
+                    },
                     color: color1,
                     child: Text(
                       "Simpan Credit",

@@ -7,7 +7,9 @@ class DetailUserDonasi extends StatelessWidget {
   String nama;
   String donasi;
   String image;
-  DetailUserDonasi({Key key, this.donasi, this.image, this.nama})
+  String rek;
+  DetailUserDonasi(
+      {Key key, this.donasi, this.image, this.nama, @required this.rek})
       : super(key: key);
 
   @override
@@ -27,14 +29,18 @@ class DetailUserDonasi extends StatelessWidget {
                 color: colorWhite,
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundImage: AssetImage(image),
+                    backgroundColor: color1,
+                    child: Icon(
+                      Icons.person,
+                      color: colorWhite,
+                    ),
                   ),
                   title: Text(
                     nama,
                     style: styleNormal11,
                   ),
                   subtitle: Text(
-                    "Donasi " + donasi,
+                    "Donasi " + IDR(int.parse(donasi) + 248).toString(),
                     style: styleGreenNormal11,
                   ),
                 ),
@@ -74,7 +80,7 @@ class DetailUserDonasi extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      donasi,
+                      IDR(int.parse(donasi) + 248).toString(),
                       style: styleBold20,
                     ),
                     Container(
@@ -106,7 +112,7 @@ class DetailUserDonasi extends StatelessWidget {
                                 style: styleGrey11,
                               ),
                               Text(
-                                IDR(150000),
+                                IDR(int.parse(donasi)).toString(),
                                 style: styleGrey11,
                               ),
                             ],
@@ -152,7 +158,7 @@ class DetailUserDonasi extends StatelessWidget {
                             height: 40,
                           ),
                           Text(
-                            "4988008999",
+                            rek,
                             style: styleBold11,
                           ),
                           Padding(

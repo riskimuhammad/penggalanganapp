@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:penggalangandana/model/admin/admin_user_modeling.dart';
 import 'package:penggalangandana/model/admin/donasi_modeling.dart';
 import 'package:penggalangandana/model/admin/pay_modeling.dart';
 import 'package:penggalangandana/style/color.dart';
@@ -19,25 +20,27 @@ class _AdminPageState extends State<AdminPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: indexSelected,
-          onTap: (value) {
-            setState(() {
-              indexSelected = value;
-            });
-          },
-          fixedColor: color1,
-          items: [
-            BottomNavigationBarItem(
-              title: Text("Pay"),
-              icon: Icon(Icons.payment),
-            ),
-            BottomNavigationBarItem(
-              title: Text("Donasi"),
-              icon: Icon(Icons.card_giftcard),
-            )
-          ]),
-      body: _widget.elementAt(indexSelected),
+      // bottomNavigationBar: BottomNavigationBar(
+      //     currentIndex: indexSelected,
+      //     onTap: (value) {
+      //       setState(() {
+      //         indexSelected = value;
+      //       });
+      //     },
+      //     fixedColor: color1,
+      //     items: [
+      //       BottomNavigationBarItem(
+      //         // ignore: deprecated_member_use
+      //         title: Text("Pay"),
+      //         icon: Icon(Icons.payment),
+      //       ),
+      //       BottomNavigationBarItem(
+      //         // ignore: deprecated_member_use
+      //         title: Text("Donasi"),
+      //         icon: Icon(Icons.card_giftcard),
+      //       )
+      //     ]),
+      body: UserDonasi(),
     );
   }
 }

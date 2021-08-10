@@ -1,9 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.penggalangandana">
+    package="com.app.penggalangandana">
    <application
         android:label="penggalangandana"
         android:icon="@mipmap/ic_launcher">
         <activity
+           android:requestLegacyExternalStorage="true"
+
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
