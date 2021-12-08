@@ -72,10 +72,10 @@ class _DonasiState extends State<Donasi> {
                               child: Container(
                                   child: Text(
                             widget.instansi == "1"
-                                ? "Donasi Untuk Perstasi Duafa \n#DompetBerkah"
+                                ? "Donasi Untuk Perstasi Duafa \n#DompetBerkah \n Debit : 8766766662 \n Bank : 2662555422 "
                                 : widget.instansi == "3"
-                                    ? "Yok, Berikan reward kepada anak yatim \n#DompetBerkah"
-                                    : "Beasiswa Untuk Anak Pintar \n#DompetBerkah",
+                                    ? "Yok, Berikan reward kepada anak yatim \n#DompetBerkah \n Debit : 8766766662 \n Bank : 2662555422"
+                                    : "Beasiswa Untuk Anak Pintar \n#DompetBerkah \n Debit : 8766766662 \n Bank : 2662555422",
                             style: styleNormal,
                           )))
                         ],

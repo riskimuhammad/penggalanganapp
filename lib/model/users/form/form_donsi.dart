@@ -31,11 +31,18 @@ class FormDonasi extends StatefulWidget {
 }
 
 class _FormDonasiState extends State<FormDonasi> {
-  TextEditingController controller = TextEditingController(text: "");
+  TextEditingController controller;
+  int jumdonasi = 0;
   bool isSwitched = false;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   SingingCharacter _character;
   GlobalKey<ScaffoldState> scffoldKey = GlobalKey<ScaffoldState>();
+  @override
+  void initState() {
+    controller = TextEditingController(text: "");
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -274,7 +281,7 @@ class _FormDonasiState extends State<FormDonasi> {
                                           style: styleNormal,
                                         ),
                                         Text(
-                                          IDR(150000).toString(),
+                                          IDR(jumdonasi).toString(),
                                           style: styleNormal,
                                         )
                                       ],
@@ -301,10 +308,15 @@ class _FormDonasiState extends State<FormDonasi> {
                                           "Total",
                                           style: styleBold,
                                         ),
-                                        Text(
-                                          IDR(150240).toString(),
-                                          style: styleBold,
-                                        )
+                                        jumdonasi == 0
+                                            ? Text(
+                                                IDR(0).toString(),
+                                                style: styleBold,
+                                              )
+                                            : Text(
+                                                IDR(jumdonasi + 240).toString(),
+                                                style: styleBold,
+                                              )
                                       ],
                                     )
                                   ],
@@ -385,6 +397,11 @@ class _FormDonasiState extends State<FormDonasi> {
     return Padding(
       padding: const EdgeInsets.only(left: 40, right: 40),
       child: TextFormField(
+        onChanged: (val) {
+          setState(() {
+            jumdonasi = val == "" ? 0 : int.parse(val);
+          });
+        },
         keyboardType: TextInputType.number,
         validator: (validasi) {
           if (validasi == null || validasi.isEmpty)

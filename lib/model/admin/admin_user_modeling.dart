@@ -55,22 +55,21 @@ class _UserDonasiState extends State<UserDonasi> {
             return SizedBox();
           }
 
-          return SingleChildScrollView(
+          return Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 300,
+                  height: 350,
                   width: double.infinity,
                   color: color1,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(
-                          left: 20,
-                          right: 20,
-                        ),
+                        margin: EdgeInsets.only(left: 20, right: 20, top: 60),
                         padding: EdgeInsets.all(50),
                         decoration: BoxDecoration(
                             color: colorWhite,
@@ -109,6 +108,44 @@ class _UserDonasiState extends State<UserDonasi> {
                             ),
                           ],
                         ),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                        padding: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            color: colorWhite,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Rekening Instansi",
+                              style: styleBold11,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Beasiswa Prestasi Duafa : 1121122866 (BNI)",
+                              style: styleGreenNormal11,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Beasiswa Prestasi Pintar : 6860148755 (BCA)",
+                              style: styleGreenNormal11,
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Beasiswa Prestasi Yatim : 0095555554 (BNI)",
+                              style: styleGreenNormal11,
+                            ),
+                          ],
+                        ),
                       )
                     ],
                   ),
@@ -123,130 +160,129 @@ class _UserDonasiState extends State<UserDonasi> {
                     style: styleBold,
                   ),
                 ),
-                Container(
-                  height: SIZE().height(context),
-                  width: SIZE().widht(context),
-                  margin: EdgeInsets.only(top: 10),
-                  child: ListView.builder(
-                      padding: EdgeInsets.only(left: 15, right: 15),
-                      shrinkWrap: true,
-                      itemCount: snapshot.data.documents.length,
-                      itemBuilder: (context, index) {
-                        return StreamBuilder(
-                            stream: Firestore.instance
-                                .collection("users")
-                                .document(
-                                    snapshot.data.documents[index].documentID)
-                                .collection("donasi user")
-                                .snapshots(),
-                            builder: (context,
-                                AsyncSnapshot<QuerySnapshot> snapshot1) {
-                              if (snapshot1.data == null) {
-                                return SizedBox();
-                              }
-                              return Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(top: 10),
-                                    color: colorWhite,
-                                    child: Stack(
-                                      children: [
-                                        ListTile(
-                                          // onTap: () {
-                                          //   if (widget.konfirmasi == "") {
-                                          //     Navigator.push(
-                                          //         context,
-                                          //         MaterialPageRoute(
-                                          //             builder: (context) => DetailUserDonasi(
-                                          //                   donasi: IDR(187).toString(),
-                                          //                   image: "assets/images/person.jpeg",
-                                          //                   nama: snapshot.data.documents[index]
-                                          //                       ['nama'],
-                                          //                 )));
-                                          //   } else {
-                                          //     DIALOG().dialogInfo(context);
-                                          //   }
-                                          // },
-                                          leading: CircleAvatar(
-                                            backgroundColor: colorWhite,
-                                            child: Icon(
-                                              Icons.circle_notifications,
-                                              size: 40,
-                                            ),
-                                          ),
-                                          title: Text(
-                                            snapshot.data.documents[index]
-                                                ['nama'],
-                                            style: styleNormal11,
-                                          ),
-                                          subtitle: Text(
-                                            "NIK " +
-                                                snapshot.data
-                                                    .documents[index]['nik']
-                                                    .toString(),
-                                            style: styleGreenNormal11,
-                                          ),
-                                          trailing:
-                                              widget.konfirmasi == "sukses"
-                                                  ? CircleAvatar(
-                                                      backgroundColor: color1,
-                                                      child: Icon(
-                                                        Icons.check,
-                                                        color: colorWhite,
-                                                      ),
-                                                    )
-                                                  : RaisedButton(
-                                                      color: color1,
-                                                      onPressed: () {
-                                                        Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                                builder:
-                                                                    (context) =>
-                                                                        DonasiAdminModel(
-                                                                          document: snapshot
-                                                                              .data
-                                                                              .documents[index]
-                                                                              .documentID,
-                                                                        )));
-                                                      },
-                                                      child: Text(
-                                                        "Lihat",
-                                                        style:
-                                                            styleNormalWhite11,
-                                                      ),
-                                                    ),
-                                        ),
-                                        Positioned(
-                                          top: 9,
-                                          left: 10,
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            child: CircleAvatar(
-                                              backgroundColor: snapshot1.data
-                                                          .documents.length ==
-                                                      0
-                                                  ? Colors.transparent
-                                                  : color1,
-                                              child: Text(
-                                                  snapshot1
-                                                      .data.documents.length
-                                                      .toString(),
-                                                  style: styleSize9White),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                Expanded(
+                  child: Container(
+                    width: SIZE().widht(context),
+                    margin: EdgeInsets.only(top: 10),
+                    child: ListView.builder(
+                        padding: EdgeInsets.only(left: 15, right: 15),
+                        shrinkWrap: true,
+                        itemCount: snapshot.data.documents.length,
+                        itemBuilder: (context, index) {
+                          return StreamBuilder(
+                              stream: Firestore.instance
+                                  .collection("users")
+                                  .document(
+                                      snapshot.data.documents[index].documentID)
+                                  .collection("donasi user")
+                                  .snapshots(),
+                              builder: (context,
+                                  AsyncSnapshot<QuerySnapshot> snapshot1) {
+                                if (snapshot1.data == null) {
+                                  return SizedBox();
+                                }
+                                return Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 10,
                                     ),
-                                  ),
-                                ],
-                              );
-                            });
-                      }),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 10),
+                                      color: colorWhite,
+                                      child: Stack(
+                                        children: [
+                                          ListTile(
+                                            // onTap: () {
+                                            //   if (widget.konfirmasi == "") {
+                                            //     Navigator.push(
+                                            //         context,
+                                            //         MaterialPageRoute(
+                                            //             builder: (context) => DetailUserDonasi(
+                                            //                   donasi: IDR(187).toString(),
+                                            //                   image: "assets/images/person.jpeg",
+                                            //                   nama: snapshot.data.documents[index]
+                                            //                       ['nama'],
+                                            //                 )));
+                                            //   } else {
+                                            //     DIALOG().dialogInfo(context);
+                                            //   }
+                                            // },
+                                            leading: CircleAvatar(
+                                              backgroundColor: colorWhite,
+                                              child: Icon(
+                                                Icons.circle_notifications,
+                                                size: 40,
+                                              ),
+                                            ),
+                                            title: Text(
+                                              snapshot.data.documents[index]
+                                                  ['nama'],
+                                              style: styleNormal11,
+                                            ),
+                                            subtitle: Text(
+                                              "NIK " +
+                                                  snapshot.data
+                                                      .documents[index]['nik']
+                                                      .toString(),
+                                              style: styleGreenNormal11,
+                                            ),
+                                            trailing:
+                                                widget.konfirmasi == "sukses"
+                                                    ? CircleAvatar(
+                                                        backgroundColor: color1,
+                                                        child: Icon(
+                                                          Icons.check,
+                                                          color: colorWhite,
+                                                        ),
+                                                      )
+                                                    : RaisedButton(
+                                                        color: color1,
+                                                        onPressed: () {
+                                                          Navigator.push(
+                                                              context,
+                                                              MaterialPageRoute(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          DonasiAdminModel(
+                                                                            document:
+                                                                                snapshot.data.documents[index].documentID,
+                                                                          )));
+                                                        },
+                                                        child: Text(
+                                                          "Lihat",
+                                                          style:
+                                                              styleNormalWhite11,
+                                                        ),
+                                                      ),
+                                          ),
+                                          Positioned(
+                                            top: 9,
+                                            left: 10,
+                                            child: Container(
+                                              height: 20,
+                                              width: 20,
+                                              child: CircleAvatar(
+                                                backgroundColor: snapshot1.data
+                                                            .documents.length ==
+                                                        0
+                                                    ? Colors.transparent
+                                                    : color1,
+                                                child: Text(
+                                                    snapshot1
+                                                        .data.documents.length
+                                                        .toString(),
+                                                    style: styleSize9White),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              });
+                        }),
+                  ),
                 ),
               ],
             ),

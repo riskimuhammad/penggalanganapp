@@ -72,7 +72,7 @@ class _ProfileState extends State<Profile> {
                               child: ListTile(
                                 trailing: InkWell(
                                   onTap: () {
-                                    ServiceApp().signOut().whenComplete(() {
+                                    ServiceApp().signOut().then((value) {
                                       Navigator.pop(context);
                                     });
                                   },
