@@ -221,7 +221,7 @@ class _KonfirmasiPembayaranState extends State<KonfirmasiPembayaran> {
                                 style: styleGrey11,
                               ),
                               Text(
-                                "Yayasn BantuUmat",
+                                "Lembaga Peduli Duafa",
                                 style: styleBold11,
                               ),
                               Container(
